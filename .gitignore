@@ -3,3 +3,4 @@ scratch/
 .vercel/
 node_modules/
 *.log
+.vercel
