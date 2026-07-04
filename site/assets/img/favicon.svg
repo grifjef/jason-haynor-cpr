@@ -1,5 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Jason Haynor CPR">
   <rect width="64" height="64" rx="15" fill="#0A1F44"/>
   <path d="M32 47C15 35 19 19 28.5 19c3.6 0 3.5 3.6 3.5 3.6s0-3.6 3.5-3.6C45 19 49 35 32 47z" fill="#B31942"/>
-  <path d="M14 31h8l3-6.5 4.4 12.5 3.3-8 2.1 2H50" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- heartbeat line that forms an "H" (for Haynor) -->
+  <path d="M15 31h5.4l1.4-4 1.6 4H27M27 23.5V38.5M27 31h10M37 23.5V38.5M37 31h10"
+        fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
