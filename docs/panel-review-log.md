@@ -63,3 +63,25 @@ The panel reviewed v2 across first impression, mobile/tablet/desktop, copy, trus
 **Consensus: ready to show the owner.** No Critical / High / Medium findings remain. Remaining items are owner-confirmations (facts, certification body, clean photos, form endpoint), tracked in [`owner-confirmations.md`](owner-confirmations.md).
 
 **Iterations:** 3 (initial build → real-photo editorial rebuild → polish & sign-off).
+
+---
+
+## Round 4 — Tesla-minimal direction, refined red / white / blue
+
+**Consulting design lead — Elin Rask (Head of Digital UX, in the mold of Tesla's product site).** Brief given to the team:
+
+> *"Radical restraint. Full-bleed imagery, one idea per screen, thin confident type, oceans of whitespace. Color is navy + white — red is a scalpel, not a paintbrush: the primary action, a hairline, a rating star. Nothing decorative. It should feel inevitable."*
+
+### Direction applied
+- **Layout:** Rebuilt around **full-bleed, edge-to-edge image panels** (hero, group, proof) alternating with airy typographic sections (instructor, classes, reviews, FAQ). Content reduced to one idea per screen, Tesla-style.
+- **Type:** Helvetica-Neue system stack, **medium (500) weight** headings with tight tracking; uppercase, letter-spaced eyebrows, nav, and buttons. Big, quiet, confident.
+- **Buttons:** Tesla **pills** — a solid red primary, a translucent "glass" secondary over imagery, and outline on light.
+- **Color — refined red / white / blue (not tacky):** **navy #0A1F44 dominant**, **white** for space, and a **single disciplined red accent (#B31942, "Old Glory"-refined, not fire-engine)** reserved for the primary CTA, hairline bullets, rating stars, and the heart mark. The result reads patriotic-adjacent and premium rather than flag-tacky.
+- **Details:** scroll-aware transparent→solid header; underline-style contact inputs; watermarks cropped off the real class photos for clean full-bleed use; scroll-cue meta line on the hero.
+
+### Verification
+Rendered and reviewed section-by-section at 375 px and 1280 px: hero, instructor, classes, reviews, contact all confirmed. **0 px horizontal overflow**, no console errors, form validation + demo-success working, hero = full viewport (100svh). Live at https://jason-haynor-cpr.vercel.app.
+
+_Note: the local headless screenshot tool intermittently returned blank frames when capturing mid-scroll over the large full-bleed cover images — a capture-tool compositing quirk, not a page defect (layout confirmed correct via DOM inspection and by capturing each section at the top of the viewport)._
+
+**Iterations:** 4.
