@@ -20,7 +20,7 @@ jason-haynor-cpr/
     index.html
     assets/
       css/styles.css            ← one stylesheet, mobile-first
-      js/main.js                ← vanilla JS (nav, FAQ, form, active-nav)
+      js/main.js                ← vanilla JS (nav, header-on-scroll, active-nav)
       img/                      ← real class photos + SVG logo/favicon
       icons/ · fonts/           ← (unused; system fonts, inline SVG icons)
   docs/
@@ -42,7 +42,7 @@ Just open the file:
 ```
 site/index.html
 ```
-Or run a simple static server (recommended, so relative paths and the form behave):
+Or run a simple static server (recommended, so relative paths behave):
 ```bash
 cd site
 python3 -m http.server 8080
@@ -56,20 +56,20 @@ Then visit **http://localhost:8080**.
 - Tap-to-call, directions text, and social links are real and working.
 
 ## What's prototype-only
-- **The contact form is a demo** — it validates and shows a confirmation but is **not connected** to any backend. The real conversion path is tap-to-call/text. Wire the form to email or a form service (Formspree, Netlify Forms, etc.) before launch.
+- **No contact form / no backend.** Contact is by design tap-to-call, text (SMS), and Facebook/Instagram DM — all real, working links. Nothing to wire up before launch.
 - Star/review counts and the certification body reflect public info as of research; confirm before launch.
 
 ## What needs owner confirmation
-See [`docs/owner-confirmations.md`](docs/owner-confirmations.md) — key items: certifying body (intentionally omitted), exact hours/pricing/curriculum, whether the Grovewood address should be public, clean photo originals, and the form email endpoint.
+See [`docs/owner-confirmations.md`](docs/owner-confirmations.md) — key items: certifying body (intentionally omitted), exact hours/pricing/curriculum, whether the Grovewood address should be public, and clean photo originals.
 
 ## Deploy as static files
 Any static host works (the source *is* the runtime — no build step):
 - **Vercel** (current): `vercel.json` sets `outputDirectory: site`. Deploy with `vercel deploy --prod` from this folder, or connect the GitHub repo in the Vercel dashboard for auto-deploys.
 - **Netlify / Cloudflare Pages / GitHub Pages / S3:** upload the contents of `site/` as the web root.
 
-## Notes on forms & integrations
-- No backend, database, CMS, or auth. Pure HTML/CSS/vanilla JS.
-- To make the form live: point it at a form endpoint and update `site/assets/js/main.js` (replace the demo success handler with a real submit) — or drop in a Formspree `action`.
+## Notes on integrations
+- No backend, database, CMS, auth, or contact form. Pure HTML/CSS/vanilla JS.
+- Contact runs on `tel:`, `sms:`, and Facebook/Instagram links — all live.
 - Connect a domain, then update the `canonical` and `og:*` URLs in `index.html`.
 
 ## Final deliverables

@@ -42,35 +42,6 @@
     });
   }
 
-  /* ---------- Prototype request form ---------- */
-  var form = document.getElementById("request-form");
-  var note = document.getElementById("form-note");
-
-  function setError(field, msg) {
-    var wrap = field.closest(".field");
-    var err = wrap ? wrap.querySelector(".err") : null;
-    if (msg) { wrap && wrap.classList.add("invalid"); if (err) err.textContent = msg; field.setAttribute("aria-invalid", "true"); }
-    else { wrap && wrap.classList.remove("invalid"); if (err) err.textContent = ""; field.removeAttribute("aria-invalid"); }
-  }
-  function escapeHtml(s){return s.replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
-
-  if (form) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      var name = form.elements.name, phone = form.elements.phone, ok = true;
-      if (!name.value.trim()) { setError(name, "Please enter your name."); ok = false; } else setError(name, "");
-      var digits = (phone.value.match(/\d/g) || []).length;
-      if (digits < 7) { setError(phone, "Please enter a valid phone number."); ok = false; } else setError(phone, "");
-      if (!ok) { var fi = form.querySelector('[aria-invalid="true"]'); if (fi) fi.focus(); return; }
-      if (note) {
-        note.classList.add("success");
-        note.innerHTML = "Thanks, " + escapeHtml(name.value.trim().split(" ")[0]) +
-          " — this is a demo prototype, so your request wasn't sent yet. To lock in your class now, call or text <a href=\"tel:+17274219099\">(727) 421-9099</a>.";
-      }
-      form.querySelector('button[type="submit"]').textContent = "Request received (demo)";
-    });
-  }
-
   /* ---------- Active section in nav ---------- */
   var sections = document.querySelectorAll("main section[id]");
   var navLinks = navList ? navList.querySelectorAll('a[href^="#"]') : [];

@@ -27,10 +27,10 @@ Everything on the prototype is drawn from public sources (Google Business Profil
 - [ ] Logo: the prototype uses a **redrawn** mark (Maltese cross + heart + heartbeat) inspired by your real emblem. Send the original logo file if you'd like it used exactly.
 
 ## Technical / launch
-- [ ] **Contact form** is a **demo only** — it is not connected. Before launch we'll wire it to email or a simple form service (e.g., Formspree/Netlify Forms) so requests reach you. Which email should receive them?
+- [ ] **Contact** is handled entirely by **call / text / Facebook DM / Instagram DM** — there is no contact form to connect. Confirm the phone number accepts texts and that the Facebook and Instagram profiles are the right ones for DMs.
 - [ ] **Domain:** the site is deployed to a temporary Vercel URL. Do you own a domain (e.g., cprbyjasonhaynor.com) to connect? Update the canonical/OG URLs at that time.
 - [ ] **"Book now":** your Facebook page has a Book now button — is there a booking tool/link (Calendly, Square, etc.) we should wire the site's CTAs to?
 - [ ] **Instagram handle** used: @haynorsheartbeatcpr — correct?
 
 ## Legal
-- [ ] Add a short privacy note once the form is connected (what data is collected and how it's used).
+- [ ] No web form collects data (contact is call/text/DM only), so a privacy policy isn't strictly required — add one only if you later add a form or analytics.
