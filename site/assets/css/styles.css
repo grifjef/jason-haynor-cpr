@@ -205,7 +205,8 @@ main section[id]{scroll-margin-top:84px}
 .contact-sub{color:rgba(255,255,255,.82);font-size:1.08rem;max-width:46ch;margin:0 auto 8px}
 .tel-big{display:inline-block;color:#fff;font-size:clamp(2rem,6vw,3rem);font-weight:600;letter-spacing:-.02em;margin:14px 0 30px}
 .tel-big:hover{color:#fff;text-decoration:none;opacity:.85}
-.contact-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-bottom:44px}
+.contact-actions{display:grid;grid-template-columns:1fr;gap:12px;max-width:340px;margin:0 auto 44px}
+.contact-actions .btn{width:100%;min-width:0}
 .contact-facts{display:flex;flex-direction:column;gap:16px;border-top:1px solid var(--line-navy);padding-top:28px;max-width:460px;margin:0 auto}
 .contact-facts li{font-size:.98rem;color:rgba(255,255,255,.9)}
 .contact-facts span{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.16em;color:rgba(255,255,255,.5);margin-bottom:3px}
@@ -237,6 +238,7 @@ main section[id]{scroll-margin-top:84px}
   .statrule-in{grid-template-columns:repeat(4,1fr)}
   .quotes{grid-template-columns:repeat(3,1fr)}
   .btns{gap:16px}
+  .contact-actions{grid-template-columns:1fr 1fr;gap:14px;max-width:600px}
 }
 @media (min-width:860px){
   .section{padding:104px 0}
