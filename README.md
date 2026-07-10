@@ -2,7 +2,8 @@
 
 A speculative, mobile-first marketing website for **CPR Certification by Jason Haynor** (Haynor.Life LLC) — firefighter-taught CPR/AED & first-aid certification classes in **Clearwater, FL**. Built to show the owner what a polished web presence could look like.
 
-- **Live:** https://jason-haynor-cpr.vercel.app
+- **Live (current):** https://jason-haynor-cpr.vercel.app
+- **Production domain (intended):** https://haynorcpr.com — canonical, OG, schema, `robots.txt`, and `sitemap.xml` already point here; connect DNS to go live.
 - **Repo:** https://github.com/grifjef/jason-haynor-cpr
 
 ## Project purpose
@@ -70,7 +71,8 @@ Any static host works (the source *is* the runtime — no build step):
 ## Notes on integrations
 - No backend, database, CMS, auth, or contact form. Pure HTML/CSS/vanilla JS.
 - Contact runs on `tel:`, `sms:`, and Facebook/Instagram links — all live.
-- Connect a domain, then update the `canonical` and `og:*` URLs in `index.html`.
+- Domain is set to **haynorcpr.com** in `index.html` (canonical/OG/schema), `robots.txt`, and `sitemap.xml`. Point DNS at Vercel and add the domain to the project to go live; if a different domain is chosen, update those five references.
+- `site/robots.txt` and `site/sitemap.xml` are included and serve at the site root.
 
 ## Final deliverables
 - Website prototype → `site/` (live at https://jason-haynor-cpr.vercel.app)

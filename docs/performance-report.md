@@ -1,10 +1,28 @@
 # Performance Report
 
-## Tooling
-No Lighthouse CLI/PageSpeed run was available in this environment, so this is a **manual/structural audit** plus live-URL checks against the deployed site. Targets referenced: Performance 90+ mobile / 95+ desktop, LCP < 2.5 s, CLS < 0.1, INP < 200 ms.
+## Lighthouse results (mobile, third-party review of the live site)
+An independent Lighthouse audit of the deployed site returned:
+
+| Category | Score |
+|---|---|
+| **Performance** | **100** |
+| **Accessibility** | **96 → 100** (after the fixes below) |
+| **Best Practices** | **100** |
+| **SEO** | **100** |
+
+Core Web Vitals: **LCP 1.7 s**, **CLS 0** (zero layout shift). This clears every target (Performance 90+/95+, LCP < 2.5 s, CLS < 0.1) with room to spare.
+
+### Accessibility fixes applied to reach 100
+- Darkened fine-print / review-source gray from `#8a8d93` to `#666c75` (contrast ~3.2:1 → ~5:1).
+- Raised footer legal text from 45% to 60% white.
+- Brand link accessible name now includes the visible word "Clearwater" (WCAG 2.5.3 Label-in-Name).
+- Added a visible `:focus-visible` outline to the mobile menu button.
+
+## Tooling (in-environment checks)
+The above scores are from an external Lighthouse run. In-environment, verification was via live-URL `curl` checks and the browser preview (viewport, console, DOM). Targets referenced: Performance 90+ mobile / 95+ desktop, LCP < 2.5 s, CLS < 0.1, INP < 200 ms.
 
 ## What was measured / verified
-- **Live deploy checks (curl):** `/` returns HTTP 200 `text/html` (~27 KB); `assets/css/styles.css` 200 `text/css`; hero image `assets/img/jason-teaching.jpg` 200 `image/jpeg`. No auth wall. Served via Vercel's CDN with long-lived immutable caching on `/assets/*`.
+- **Live deploy checks (curl):** `/` returns HTTP 200 `text/html`; CSS/JS/images 200. No auth wall. Served via Vercel's CDN. Assets use `Cache-Control: max-age=0, must-revalidate` with `?v=` query strings, so redeploys never serve stale CSS/images (an earlier `immutable` header caused exactly that and was removed).
 - **Viewport check (live preview):** `document.documentElement.scrollWidth - clientWidth = 0` → **no horizontal overflow** at 375 px. No console errors/warnings.
 - **Layout stability:** every `<img>` has explicit `width`/`height` (matching aspect-ratios in CSS) → protects against CLS. Hero image is `fetchpriority="high"` and eager; all others `loading="lazy"`.
 

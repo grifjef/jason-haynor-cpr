@@ -10,7 +10,7 @@
   --red-2:#991536;
   --ink:#171A20;           /* near-black text */
   --gray:#5C5E62;          /* secondary text */
-  --gray-2:#8a8d93;
+  --gray-2:#666c75;
   --white:#ffffff;
   --mist:#F5F6F8;          /* light section bg */
   --line:#E4E7EC;
@@ -78,6 +78,8 @@ ul,ol{margin:0;padding:0;list-style:none}
 .main-nav{display:flex;align-items:center}
 .nav-toggle{display:flex;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;background:none;border:0;cursor:pointer;padding:11px}
 .nav-toggle span{display:block;height:2px;width:100%;background:#fff;border-radius:2px;transition:.25s var(--ease)}
+.nav-toggle:focus-visible{outline:2px solid var(--red);outline-offset:2px;border-radius:6px}
+.site-header[data-transparent="true"]:not(.scrolled) .nav-toggle:focus-visible{outline-color:#fff}
 .nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
 .nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
@@ -107,15 +109,19 @@ ul,ol{margin:0;padding:0;list-style:none}
 .panel-hero .panel-sub{margin:0 auto;text-align:center;font-size:clamp(1.02rem,2.4vw,1.25rem)}
 .panel-actions{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:18px}
 .panel-actions .btns{justify-content:center}
-.panel-meta{margin:0;color:rgba(255,255,255,.92);font-size:.86rem;letter-spacing:.02em}
+.panel-meta{display:inline-block;margin:0;color:rgba(255,255,255,.92);font-size:.86rem;letter-spacing:.02em;text-decoration:none}
+a.panel-meta{border-bottom:1px solid rgba(255,255,255,0);transition:border-color .2s}
+a.panel-meta:hover{color:#fff;text-decoration:none;border-bottom-color:rgba(255,255,255,.6)}
+a.panel-meta:focus-visible{outline:2px solid #fff;outline-offset:3px;border-radius:4px}
 .panel-meta .star{color:#ffd15c}
 
 /* mid panels: centered */
-.panel-mid{min-height:88svh;display:flex;align-items:center;padding:90px 0;text-align:center}
+.panel-mid{min-height:72svh;display:flex;align-items:center;padding:76px 0;text-align:center}
 .panel-mid .panel-content.center{text-align:center}
 .panel-mid h2{font-size:clamp(2rem,5vw,3.4rem);margin-bottom:.3em}
 .panel-mid .panel-sub{margin:0 auto 26px}
 .panel-mid .btns{justify-content:center}
+.panel-note{margin:20px 0 0;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.72)}
 .panel-proof .panel-bg{object-position:50% 40%}
 
 /* =========================================================
@@ -130,7 +136,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 /* =========================================================
    SECTIONS
    ========================================================= */
-.section{padding:76px 0}
+.section{padding:56px 0}
 main section[id]{scroll-margin-top:70px}
 .section-mist{background:var(--mist)}
 .section-navy{background:var(--navy);color:#fff}
@@ -162,7 +168,9 @@ main section[id]{scroll-margin-top:70px}
 .mini li{position:relative;padding-left:22px;font-size:.92rem;color:var(--ink)}
 .mini li::before{content:"";position:absolute;left:0;top:8px;width:11px;height:2px;background:var(--red)}
 .tier .btn{margin-top:auto}
-.fineprint{margin:26px 0 0;text-align:center;font-size:.8rem;color:var(--gray-2)}
+.next-date{margin:30px auto 0;max-width:620px;text-align:center;font-size:.98rem;color:var(--ink)}
+.next-date a{font-weight:600;white-space:nowrap}
+.fineprint{margin:14px 0 0;text-align:center;font-size:.8rem;color:var(--gray-2)}
 
 /* ---------- Steps ---------- */
 .steps{display:grid;gap:30px;counter-reset:s}
@@ -211,11 +219,12 @@ main section[id]{scroll-margin-top:70px}
 .foot-links{display:flex;flex-wrap:wrap;gap:10px 26px}
 .foot-links a{color:rgba(255,255,255,.8);text-transform:uppercase;letter-spacing:.1em;font-size:.76rem;font-weight:500}
 .foot-links a:hover{color:#fff}
-.foot-legal{margin-top:22px;display:flex;flex-direction:column;gap:6px;font-size:.76rem;color:rgba(255,255,255,.45)}
+.foot-legal{margin-top:22px;display:flex;flex-direction:column;gap:6px;font-size:.76rem;color:rgba(255,255,255,.6)}
 .foot-legal p{margin:0}
 
 /* ---------- Sticky mobile call bar ---------- */
-.callbar{position:fixed;left:0;right:0;bottom:0;z-index:90;display:flex;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:90;display:flex;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-top:1px solid var(--line);transition:transform .3s var(--ease)}
+.callbar.is-hidden{transform:translateY(130%)}
 .callbar-btn{flex:1;text-align:center;padding:14px 10px;border-radius:100px;font-weight:600;font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;background:#fff;color:var(--navy);border:1.5px solid var(--line)}
 .callbar-btn:hover{text-decoration:none}
 .callbar-btn.primary{background:var(--red);color:#fff;border-color:var(--red)}

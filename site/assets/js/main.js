@@ -17,6 +17,25 @@
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
 
+  /* ---------- Sticky call bar: show only mid-page ----------
+     Hidden while the hero or the contact section is visible, so it
+     never duplicates the hero buttons, obscures the hero rating line,
+     or repeats the contact options. */
+  var callbar = document.getElementById("callbar");
+  if (callbar && "IntersectionObserver" in window) {
+    var suppressors = [document.querySelector(".panel-hero"), document.getElementById("contact")].filter(Boolean);
+    var visible = new Set();
+    var barObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) visible.add(e.target); else visible.delete(e.target);
+      });
+      callbar.classList.toggle("is-hidden", visible.size > 0);
+    }, { threshold: 0 });
+    suppressors.forEach(function (el) { barObs.observe(el); });
+  } else if (callbar) {
+    callbar.classList.remove("is-hidden");
+  }
+
   /* ---------- Mobile nav ---------- */
   var toggle = document.querySelector(".nav-toggle");
   var navList = document.getElementById("nav-list");

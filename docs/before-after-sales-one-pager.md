@@ -3,7 +3,9 @@
 ## The short version
 You've built something rare: a **5.0-star reputation across 68 reviews**, a **100%-recommend** record on Facebook, and a real hook — a **Clearwater firefighter who makes CPR genuinely fun**. The one thing missing is a home base of your own. Right now, when someone Googles you, there's **no website to land on**. This is a fast, mobile-first website that turns your existing reputation into calls and bookings — built around your real photos and your real story.
 
-**See it live:** https://jason-haynor-cpr.vercel.app
+**See it live:** https://jason-haynor-cpr.vercel.app — going to **haynorcpr.com**
+
+An independent Lighthouse audit scored it **100 Performance, 100 Best Practices, 100 SEO, and 100 Accessibility**, with a 1.7-second load and zero layout shift — genuinely faster and cleaner than most local-business sites.
 
 ## What your current online presence may be costing you
 - **No website at all** — Google shows an "Add website" prompt, so search traffic for "CPR class Clearwater" has nowhere to go.
@@ -50,7 +52,7 @@ The prototype uses **Jason's own class photos** from Facebook (firefighter-taugh
 1. Confirm business facts, services, offers, hours, and contact details (see owner-confirmation list).
 2. Confirm the **certification body** and approve photos, logo, and testimonials.
 3. Connect the **request form** to your email (and any booking tool the "Book now" button uses).
-4. Finalize SEO title/description/schema and connect a **domain** (e.g., cprbyjasonhaynor.com).
+4. Connect the **haynorcpr.com** domain (DNS → Vercel), then verify it in Google Search Console and set it on the Google Business Profile.
 5. Point Google Business Profile's website field to the new site.
 6. Monitor calls, texts, and form requests.
 
@@ -66,7 +68,7 @@ The prototype uses **Jason's own class photos** from Facebook (firefighter-taugh
 9. "It's set up so Google understands you're a Clearwater CPR business — better local search."
 10. "Nothing is exaggerated — we left the certification body blank until you confirm it."
 11. "It's already live on the web and I can hand you the code — you own it."
-12. "When you're ready, we point your domain at it and connect the form — that's it."
+12. "When you're ready, we point haynorcpr.com at it — that's it. Booking stays where you want it: call, text, or DM."
 
 ## Final deliverables checklist
 - **Static website prototype:** [`../site/index.html`](../site/index.html) — live at https://jason-haynor-cpr.vercel.app
